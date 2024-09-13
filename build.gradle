@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.7-SNAPSHOT'
+	id 'fabric-loom' version '1.2-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -17,7 +17,7 @@ repositories {
 	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
 	// for more information about repositories.
-	
+
 	maven {
 		name = "rusherhack"
 		//releases repository will have the latest api version for last stable rusherhack release
@@ -34,26 +34,28 @@ repositories {
 
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	
+
 	//mojmap + parchment mappings
 	mappings loom.layered() {
 		officialMojangMappings()
-		parchment("org.parchmentmc.data:parchment-1.20.1:2023.09.03@zip")
+		parchment("org.parchmentmc.data:parchment-1.20.1:2023.07.30@zip")
 	}
+
+
 
 	//rusherhack api
 	rusherhackApi "org.rusherhack:rusherhack-api:$minecraft_version-SNAPSHOT"
 }
 
 loom {
-	
+
 	//apply accesswidener from rusherhack-api
 	for (final def f in zipTree(this.project.configurations.rusherhackApi.singleFile)) {
 		if (f.name == "rusherhack.accesswidener") {
 			accessWidenerPath = f
 		}
 	}
-	
+
 	//disable run configs
 	runConfigs.configureEach {
 		ideConfigGenerated = false
@@ -82,7 +84,7 @@ java {
 
 processResources {
 	inputs.property "plugin_version", project.plugin_version
-	
+
 	filesMatching("rusherhack-plugin.json") {
 		expand(plugin_version: project.plugin_version)
 	}
