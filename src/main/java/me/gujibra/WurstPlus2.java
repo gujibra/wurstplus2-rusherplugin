@@ -18,16 +18,18 @@ public class WurstPlus2 extends Plugin {
     public void onLoad() {
         this.getLogger().info("Receba");
 
+
         final CAMessage caMesagge = new CAMessage();
         RusherHackAPI.getModuleManager().registerFeature(caMesagge);
+
 
 
         final Welcome welcome = new Welcome();
         RusherHackAPI.getHudManager().registerFeature(welcome);
         final WurstWatermark wurstWatermark = new WurstWatermark();
         RusherHackAPI.getHudManager().registerFeature(wurstWatermark);
-        //final FriendList friendList = new FriendList();
-        //RusherHackAPI.getHudManager().registerFeature(friendList);
+        final FriendList friendList = new FriendList();
+        RusherHackAPI.getHudManager().registerFeature(friendList);
 
     }
 

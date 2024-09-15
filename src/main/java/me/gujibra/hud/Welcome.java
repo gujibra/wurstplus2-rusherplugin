@@ -17,6 +17,7 @@ public class Welcome extends ResizeableHudElement {
     public Welcome(){
         super("Wurst+2 Welcomer");
         this.registerSettings(this.textColor);
+        this.registerSettings(this.onepopMode);
     }
 
     @Override
@@ -26,13 +27,17 @@ public class Welcome extends ResizeableHudElement {
 
         assert mc.player != null;
         String name = "§6" + mc.player.getName().getString() + "§r";
+        if(onepopMode.getValue()) name = "§b" + mc.player.getName().getString() + "§r";
 
         if(hora >= 0 && hora < 12){
             welcomeText = "Morning, " + name + " you smell good today :)";
+            if(onepopMode.getValue()) welcomeText = "Bom dia, " + name + " ja tomou cafe da manha? :)";
         } else if (hora >= 12 && hora < 16){
             welcomeText = "Afternoon, " + name + " you're looking good today :)";
+            if(onepopMode.getValue()) welcomeText = "Boa tarde, " + name + " seu token ja ta no meu discord :)";
         } else if(hora >=16 && hora <24){
             welcomeText = "Evening, " + name + " you smell good today :)";
+            if(onepopMode.getValue()) welcomeText = "Boa noite, " + name + " espero que não seja o pedroperry :)";
         }else{
              welcomeText = "Welcome, " + name + " you're looking fine today :)";
         }

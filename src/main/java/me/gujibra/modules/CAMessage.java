@@ -31,7 +31,7 @@ public class CAMessage extends ToggleableModule {
     public void onEnable(){
         if(mc.level != null) {
             text = "§6Wurst + 2 §7> we §agaming";
-            if(onepopMode.getValue()) text = "§1pop §7> oi §1" + mc.player.getName().getString();
+            if(onepopMode.getValue()) text = "§b1pop §7> oi §b" + mc.player.getName().getString();
             this.minecraft.gui.getChat().addMessage(Component.literal(text));
 
 
@@ -42,7 +42,7 @@ public class CAMessage extends ToggleableModule {
     public void onDisable() {
         if (mc.level != null) {
             text = "§6Wurst + 2 §7> §7we aint §cgaming §7no more";
-            if(onepopMode.getValue()) text = "§1pop §7> tchau §4" + mc.player.getName().getString();
+            if(onepopMode.getValue()) text = "§b1pop §7> tchau §c" + mc.player.getName().getString();
             this.minecraft.gui.getChat().addMessage(Component.literal(text));
         }
     }
