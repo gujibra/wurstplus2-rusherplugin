@@ -21,6 +21,8 @@ public class WurstPlus2 extends Plugin {
 
         final CAMessage caMesagge = new CAMessage();
         RusherHackAPI.getModuleManager().registerFeature(caMesagge);
+        final PopCounter popCounter = new PopCounter();
+        RusherHackAPI.getModuleManager().registerFeature(popCounter);
 
 
 

@@ -14,9 +14,12 @@ public class WurstWatermark extends ResizeableHudElement {
     private final BooleanSetting onepopMode = new BooleanSetting("onepop", "onepop", false);
     private final ColorSetting textColor = new ColorSetting("Color", "The color of the text.", new Color(150, 150, 150, 255)).setAlphaAllowed(true).setRainbow(true);
     public WurstWatermark(){
-        super("Wurst+2 Watermark");
-        this.registerSettings(this.textColor);
-        this.registerSettings(this.onepopMode);
+        super("W+2 Watermark");
+        this.registerSettings(
+                this.onepopMode,
+                this.textColor
+        );
+
     }
 
     @Override

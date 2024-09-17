@@ -15,9 +15,13 @@ public class Welcome extends ResizeableHudElement {
     private final BooleanSetting onepopMode = new BooleanSetting("onepop", "onepop", false);
     private final ColorSetting textColor = new ColorSetting("Color", "The color of the text.", new Color(150, 150, 150, 255)).setAlphaAllowed(true).setRainbow(true);
     public Welcome(){
-        super("Wurst+2 Welcomer");
-        this.registerSettings(this.textColor);
-        this.registerSettings(this.onepopMode);
+        super("W+2 Welcomer");
+        this.registerSettings(
+                this.onepopMode,
+                this.textColor
+        );
+
+
     }
 
     @Override
